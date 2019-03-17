@@ -1,0 +1,237 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body { padding-top: 20px;  font-family: sans-serif; }
+.btn-save{
+    margin-top:10px;
+}
+
+.toolbar{
+    background-color:   #68829E;
+    border-radius: 5px;
+    color: white;
+
+}
+.family{
+    font-family: sans-serif;
+}
+.mat-card-title{
+    margin-bottom: 0px !important;
+}
+.mat-card-header .mat-card-title{
+    font-size: 16px;
+    }
+.main-shop{
+    color: aliceblue;
+    background-color: #68829E;
+    position: relative;
+    bottom: 6px;
+}
+.toolbar-spacer{
+    flex: 1 1 auto;
+}
+.cusor{
+    cursor:pointer;
+}
+.btn-success {
+    color: #fff;
+    background-color: #66A5AD;
+    border-color: #66A5AD;
+}
+.cusor:hover{
+    cursor: pointer;
+    -moz-transition: cursor 500ms ease-in-out;
+    -o-transition: cursor 500ms ease-in-out;
+    -webkit-transition: cursor 500ms ease-in-out;
+    transition: cursor 500ms ease-in-out;
+}
+.mat-elevation-z8{
+    box-shadow:none;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .nav ul li a:active{
+      color: aliceblue;
+      background-color: #66A5AD;
+  }
+  .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+    color:#fff;
+    background-color: #66A5AD;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    color:#fff;
+    background-color: #66A5AD;
+}
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
+    color:#fff;
+    background-color: #66A5AD;
+}
+ @media (max-width:1200px){
+    .navbar-default{
+        background-color:transparent;
+        position: relative;
+    bottom: 56px;
+    }
+    .main-shop1{
+position: relative;
+bottom: 65px;
+    }
+    .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover{
+        color:#fff;
+        background-color: #66A5AD;
+    }
+    .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+        color:#fff;
+        background-color: #66A5AD;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a:focus, .navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
+        color:#fff;
+        background-color: #66A5AD;
+    }
+ }
+
+ .example-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-height: 500px;
+    overflow: auto;
+  }
+  
+  .example-header {
+    min-height: 64px;
+    padding: 8px 24px 0;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background{
+    background-color: #68829E;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    padding-right: 16px;
+  }
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+      border-color: #68829E;
+  }
+  .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    background-color: #68829E;
+  }
+  .mat-radio-group{
+      position: relative;
+      right: 10px;
+  }
+  .displaynull{
+      display: none;
+  }
+  .mat-dialog-container{
+    height: auto !important;
+}
+.navbar-default {
+    background-color: #68829E;
+
+
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fdf7f7;
+}
+.dropdown-menu{
+    background-color: #68829e;
+    }
+    .dropdown-menu>li>a{
+    color: #f7f3f3;
+    }
+    .bakery_logo{
+        position: absolute;
+        top: 13px;
+    }
+    .anumod{
+    
+        font-size: 18px;
+        font-family: cursive;
+        padding-left: 0px;
+        color: #68829e;
+    }
+    .bakery{
+        font-size: 27px;
+        font-family: cursive;
+        padding-left: 0px; 
+        color: #68829e;
+    }
+    .header_1{
+        color: #68829e;
+    }
+    /* .btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover{
+        
+    } */
+    .btn-success:hover,.btn-success.active:focus,.btn-success.active.focus{
+        color:#fff;
+        background-color: #66A5AD;
+        border-color: #66A5AD;
+    }
+    #myTable {
+        border-collapse: collapse;
+        width: 100%;
+        border: 1px solid #ddd;
+        font-size: 13px;
+        background-color: white;
+      }
+      #myTab{
+        border: 1px solid #ddd;
+        font-size: 13px;
+        background-color: white;
+        position: relative;
+    right: 35px;
+      }
+      #myTab th,#mytab td{
+        text-align: left;
+        font-size: 14px;
+        padding: 12px;
+      }
+      #myTable th, #myTable td {
+        text-align: left;
+        padding: 12px;
+        font-size: 14px;
+      }
+      #myTab tr{
+        border-bottom: 1px solid #ddd;
+      }
+      #myTable tr {
+        border-bottom: 1px solid #ddd;
+      }
+      #myTab tr.header,#myTable tr:hover{
+        background-color: #68829e;
+        color:white;
+      }
+      #myTable tr.header, #myTable tr:hover {
+        background-color: #68829e;
+        color:white;
+        }
+        #myTab tr.header{
+            font-size: 15px;
+            font-family: sans-serif;
+        }
+      #myTable tr.header,{
+        font-size: 15px;
+        font-family: sans-serif;
+      }
+    .align{
+        position: relative;
+        right: 37px;
+
+    }
+    .hide_button{
+        background: #68829e;
+        border: none;
+        color: #fff;
+    }
