@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="col-md-12">
+<div style="text-align:center">
+    <div>
+        <span class="new_1">NEW </span>
+        <span class="anumod_1">ANUMOD </span>
+        <span class="bakery_1">BAKERY</span>
+      </div>
+   <h4><span class="welcome_to">Welcome to</span> &nbsp;<span class="anumodbakery">ANUMOD BAKERY!!!</span></h4>
+</div>
+<div class="col-md-12">
+  <div class="col-md-4"></div>
+<div class="col-md-4">
+  <form class="text-center">
+    <mat-form-field class="example-full-width">
+      <mat-select placeholder="Choose a Store" [(ngModel)]="selectedShopName" name="shop">
+        <mat-option *ngFor="let shop of shops" [value]="shop.shopName">
+          {{shop.shopName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button class="main-shop family" (click)="onOk()"><b>Submit</b></button>
+  </form>
+  
+      
+     <div class="admin_1">
+      <span class="admin_center">ADMIN</span>
+    </div>
+    <form (submit)="loginUser($event)" #userfrom="ngForm">  
+      <div class="col-md-4 padding">
+    <label>UserName:</label>
+  </div>
+  
+  <div class="col-md-8">
+    <mat-form-field [floatLabel]="options.value.floatLabel" class="example-full-width">
+     
+      <input matInput placeholder="Enter your UserName" [ngModel]="name" #user="ngModel" name="user"  id="username" required>
+      
+    </mat-form-field>
+    <span style="color: red;" *ngIf="user.touched && !user.valid">
+        <div *ngIf="user.errors.required">*user is required*</div>
+       
+       </span>
+    </div>
+   
+  
+  <div class="col-md-4 padding">
+    <label>Password:</label>
+  </div>
+  <div class="col-md-8">
+    <mat-form-field class="example-full-width"  [floatLabel]="options.value.floatLabel">
+       
+      <input matInput placeholder="Enter your password" [ngModel]="pass" type="password" #password1="ngModel" name="password" id="password"  required>
+     
+      <!-- <mat-icon matSuffix class="password" (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon> -->
+    </mat-form-field>
+    <span style="color: red; position: relative;
+    bottom: 15px;" *ngIf="password1.touched && !password1.valid">
+        <div *ngIf="password1.errors.required">*password is required*</div>
+       
+       </span>
+    </div>
+   
+ 
+ 
+
+  <div class="text-center admin">
+      <button mat-button class="main-shop family" [disabled]='userfrom.invalid' type=submit><b>LOGIN</b></button>
+    
+    </div>
+
+  </form>
+
+</div>
+</div>
+</div>
+</div>

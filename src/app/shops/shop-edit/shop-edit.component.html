@@ -1,0 +1,45 @@
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Shop Details</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onNoClick()" style="float: right;" class="cusor">cancel</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  
+  <mat-card-content>
+    
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <label>Shop Name</label>
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="data.shopName" [value]="shopname" placeholder=" Shop Name" name="shopname">
+              </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <label>Shop Code</label>
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="data.shopCode" [value]="shopcode" placeholder=" Shop Code" name="shopcode">
+              </mat-form-field>
+          </div>
+        </div>
+        
+        </div>
+       
+        <div class="col-md-12">
+          <div class="col-md-3">
+          <button type="submit" class="btn-success">
+          
+            <mat-icon>save</mat-icon>
+          </button>
+          </div>
+        </div>
+     
+  
+    </form>
+  
+  </mat-card-content>
+   

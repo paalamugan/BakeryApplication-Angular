@@ -1,0 +1,19 @@
+<div class="col-md-5">
+    <h1 class="header_1">Add Shop</h1>
+    <form class="example-form" #addshop="ngForm">
+      <mat-form-field class="example-full-width">
+        <input matInput #shopNameInput="matInput"  [(ngModel)]="shop.shopName" #shopname="ngModel" placeholder="Shop Name" name="shop.shopName" type="text" autofocus required>
+      </mat-form-field>
+      <span style="color: red;" *ngIf="shopname.touched && !shopname.valid">
+          <div *ngIf="shopname.errors.required">*field is required*</div>
+        </span>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="shop.shopCode" placeholder="Shop Code" type="text" #shopcode="ngModel" name="shop.shopCode" required>
+      </mat-form-field>
+      <span style="color: red;" *ngIf="shopcode.touched && !shopcode.valid">
+          <div *ngIf="shopcode.errors.required">*field is required*</div>
+        </span>
+    
+      <button mat-button (click)="onSubmit()" [disabled]="addshop.invalid" href="#" style="background-color:#68829e;color:white" class="family"><b>Add Shop</b></button>
+    </form>
+  </div>
