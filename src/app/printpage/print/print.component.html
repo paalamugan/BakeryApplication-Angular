@@ -1,0 +1,156 @@
+<div class="col-md-12" id="printsection">
+  <div class="printalign">
+    <span class="none">DATE:&nbsp;{{today | date:'short'}}</span>
+<table class="table display">
+  <tbody>
+<tr>
+  <td class="border"><b>website:</b>&nbsp;www.anumodbakery.com</td>
+ <td class="border"></td>
+
+  <td class="border"><b>Ph:</b>&nbsp;03192&nbsp;231105,&nbsp; <b>Cell:</b>&nbsp; 8900998800</td>
+</tr>
+<tr>
+    <td class="border"><b>email:</b>&nbsp;anumod.bakery@gmail.com</td>
+    <td class="border"></td>
+    <td class="border"></td>
+</tr>
+<tr>
+  <td class="border">
+
+  </td>
+  <td class="border text-center shop"><b class="underline">ORDER BILL</b></td>
+  <td class="border"></td>
+</tr>
+<tr>
+  <td class="border"></td>
+  <td class="border text-center bakeryhead"><b>{{data.shop.shopName | uppercase}}&nbsp; SHOP</b></td>
+  <td class="border"></td>
+</tr>
+<!-- <tr>
+  <td class="border"></td>
+  <td class="border text-center"></td>
+  <td class="border"></td>
+</tr> -->
+<tr>
+  <td class="border"> <strong> Bill NO: {{data.customid}}&nbsp; </strong></td>
+  <td class="border text-center shop"><strong>MOBILE NO:</strong>&nbsp;{{data.customer.mobile}}</td>
+  <td class="border"><strong>DATE OF BOOKING:</strong>&nbsp;{{data.orderedDate}}</td>
+</tr>
+<tr>
+  <td class="border"><strong>DATE OF DELIVERY:</strong>&nbsp;{{data.expectedDate}}</td>
+  <td class="border text-center shop"><strong>ADVANCE:</strong>&nbsp;{{data.advance}}</td>
+  <td class="border"><strong>TIME:</strong>&nbsp;{{data.expectedTime}}</td>
+</tr>
+<tr>
+    <td class="border"><strong>BALANCE:</strong>&nbsp;{{balance}}</td>
+    <td class="border"></td>
+    <td class="border"></td>
+  </tr>
+</tbody>
+  </table>
+  <table class="table display_1">
+      <tbody>
+    <tr>
+      <td class="border"><b>website:</b>&nbsp;www.anumodbakery.com</td>
+    </tr>
+    <tr>
+        <td class="border"><b>email:</b>&nbsp;anumod.bakery@gmail.com</td>
+    </tr>
+    <tr>
+      <td class="border"><b>Ph:</b>&nbsp;03192&nbsp;231105,&nbsp; <b>Cell:</b>&nbsp; 8900998800</td>
+    </tr>
+    
+    <tr>
+      <td class="border text-center"><b class="underline">ORDER BILL</b></td>
+    </tr>
+    <tr>
+        <td class="border text-center bakeryhead"><b>{{data.shop.shopName | uppercase}}&nbsp; SHOP</b></td>
+    </tr>
+    <tr>
+      <td class="border"> <strong> Bill NO: {{data.customid}}&nbsp; </strong></td>
+      </tr>
+      <tr>
+      <td class="border"><strong>MOBILE NO:</strong>&nbsp;{{data.customer.mobile}}</td>
+    </tr>
+    <tr>
+        <td class="border"><strong>ADVANCE:</strong>&nbsp;{{data.advance}}</td>
+      </tr>
+      <tr>
+          <td class="border"><strong>BALANCE:</strong>&nbsp;{{balance}}</td>
+        </tr>
+    <tr>
+      <td class="border"><strong>DATE OF BOOKING:</strong>&nbsp;{{data.orderedDate}}</td>
+    </tr>
+    <tr>
+      <td class="border"><strong>DATE OF DELIVERY:</strong>&nbsp;{{data.expectedDate}}</td>
+      </tr>
+      <tr>
+      <td class="border"><strong>TIME:</strong>&nbsp;{{data.expectedTime}}</td>
+    </tr>
+    </tbody>
+      </table>
+    <table class="table">
+      <tbody>
+        <tr>
+          <td>
+            <b>Name</b>
+          </td>
+          <td>
+              <b>Flavour</b>
+            </td>
+          <td>
+            <b>Price</b>
+          </td>
+
+          <td>
+            <b>Quantity</b>
+          </td>
+
+          <td>
+            <b>Total</b>
+          </td>
+        </tr>
+
+        <tr *ngFor="let item of data.orderItems">
+          <td>{{item.product.name}}</td>
+          <td>{{item.flavour.name}}</td>
+          <td>{{item.price}}</td>
+
+          <td>{{item.quantity}}{{item.uom.name}}</td>
+
+          <td>{{item.price*item.quantity}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+<td><b>Total</b></td>
+          <td>
+            <b>{{data.total}}</b>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <table class="table">
+      <tr>
+        <td class="border"><strong>MESSAGE:</strong>&nbsp;{{data.message}}</td>
+      </tr>
+      <tr>
+          <td class="border"><strong>COMMENTS:</strong>&nbsp;{{data.comments}}</td>
+        </tr>
+    </table> -->
+<div class="message">
+    <strong>MESSAGE:</strong>&nbsp;{{data.message}}
+</div>
+<div class="comments">
+  <p><strong>COMMENTS:</strong>&nbsp;{{data.comments}}</p>
+</div>
+</div>
+</div>
+
+
+<div class="col-md-12">
+  <button mat-button (click)="print()" style="background-color:#68829e;color:white ">Print</button>
+
+</div>
+

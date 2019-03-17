@@ -1,0 +1,69 @@
+<div class="col-md-10">
+    <h1 class="header_1">Customer List</h1>
+    <div class="example-container mat-elevation-z8">
+        <div class="example-header">
+        <mat-form-field>
+            <input matInput type="text" id="myInput" (keyup)="applyFilter()" placeholder="Filter">
+          </mat-form-field>
+          </div>
+          <table id="myTable">
+              <tr class="header">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Mobile No</th>
+                <th>AlternateMobile No</th>
+                <th></th>
+              </tr>
+              <tr *ngFor="let element of dataSource.data">
+               <td>{{element.id}}</td>
+               <td>{{element.name}}</td>
+               <td>{{element.mobile}}</td>
+               <td>{{element.alternateMobile}}</td>
+               <td><button type="button" [disabled]="custom" (click)="editcustomer(element)" class="hide_button cusor" >Edit</button> </td>
+              </tr>
+            </table>
+        <!-- <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+      
+        <table mat-table #table [dataSource]="dataSource">
+      
+          
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="mobile">
+            <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+            <td mat-cell *matCellDef="let element"> {{element.mobile}} </td>
+          </ng-container>
+      
+          
+          <ng-container matColumnDef="amobile">
+            <th mat-header-cell *matHeaderCellDef> Alter Mobile </th>
+            <td mat-cell *matCellDef="let element"> {{element.alternateMobile}} </td>
+          </ng-container>
+           
+            <ng-container matColumnDef="actioncolumn">
+              <th mat-header-cell *matHeaderCellDef>  </th>
+              <td mat-cell *matCellDef="let element">
+                  <mat-icon (click)="editcustomer(element)" class="cusor">edit</mat-icon> &nbsp;&nbsp;&nbsp; 
+                
+                    </td>
+            </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table> -->
+      </div>
+    </div>
+    

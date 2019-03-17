@@ -1,0 +1,43 @@
+<h1 class="header_1">InStock List</h1>
+<div class="align">
+ <div class="col-md-12">
+    <div class="example-header">
+        <mat-form-field>
+          <input matInput  type="text" id="myInput" [(ngModel)]="anynumber" (keyup)="applyFilter()" placeholder="Filter">
+        </mat-form-field>
+      </div>
+    
+      <table class="table" id="myTab">
+          <tr class="header">
+            <th>S/No</th>
+              <th>Id</th>
+              <th>CustomerName</th>
+              <th>Mobile</th>
+              <th>Advance</th>
+              <th>Total</th>
+              <th>OrderedDate</th>
+              <th>ExpectedDate</th>
+              <th>OrderedTime</th>
+              <th>ExpectedTime</th>
+              <th>OrderStatus</th>
+              <th>Shop</th>
+              <th></th>
+            </tr>
+       <tr *ngFor="let element of salesorder; let i = index">
+         <td>{{i+1}}</td>
+         <td>{{element.customid}}</td>
+          <td>{{element.customer.name}}</td>
+       <td>{{element.customer.mobile}}</td>
+       <td>{{element.advance}}</td>
+       <td>{{element.total}}</td>
+       <td>{{element.orderedDate}}</td>
+       <td>{{element.expectedDate}}</td>
+       <td>{{element.orderedTime}}</td>
+       <td> {{element.expectedTime}} </td>
+       <td>{{element.orderStatus.name}}</td>
+       <td> {{element.shop.shopName | uppercase}}</td>
+       <td><button type="button" (click)="editstock(element)" class="hide_button cusor" >Delivery</button></td>
+       </tr>
+          </table>
+    </div>
+</div>

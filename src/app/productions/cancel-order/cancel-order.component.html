@@ -1,0 +1,128 @@
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Cancel Order</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onNoClick()" style="float: right;" class="cusor">cancel</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  
+  <mat-card-content>
+  
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+              <input [disabled]="true" readonly="true" [ngModel]="data.customid" matInput placeholder="Id" name="id">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+              <input matInput [disabled]="true" readonly="true" [ngModel]="data.customer.name"  name="customerName" placeholder="Customer Name">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+              <input matInput [disabled]="true" readonly="true" [ngModel]="data.customer.mobile" name="customerMobile" placeholder="	Mobile Number">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+          <mat-form-field class="example-full-width">
+            <input [disabled]="true" [(ngModel)]="data.expectedDate" name="data.expectedDate" matInput [matDatepicker]="dp3" placeholder="Excepted date:(MM/DD/YYYY)">
+            <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="true"></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field  class="example-full-width">
+              <input [disabled]="true" [(ngModel)]="data.expectedTime" name="data.expectedTime" type="time" matInput placeholder="Excepted hours:(HH:MM)">
+            </mat-form-field>
+            </div>
+            </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input matInput [disabled]="true" readonly="true" [ngModel]="data.total"  name="total" placeholder="Total">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-12">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [disabled]="true" readonly="true" [ngModel]="data.advance"  name="advance" placeholder="Advance">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [disabled]="true" readonly="true" [ngModel]="balance"  name="balance" placeholder="Balance">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="col-md-6">
+                    <mat-form-field  class="example-full-width">
+                        <textarea [disabled]="true" matInput [(ngModel)]="data.comments"  name="comments" placeholder="Description"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                          <input [disabled]="true" matInput [(ngModel)]="data.message"  name="message" placeholder="Message"/>
+                      </mat-form-field>
+                    </div>
+                  </div>
+        <div class="col-md-12">
+           <table class="table">
+             <tr>
+               <td><b>Name</b></td>
+               <td><b>Model Number</b></td>
+               <td><b>Quantity</b></td>
+               <td><b>Flavour</b></td>
+             </tr>
+             <tr *ngFor="let item of data.orderItems">
+               <td>{{item.product.name}}</td>
+               <td>{{item.product.modelNumber}}</td>
+               <td>{{item.quantity}}{{item.uom.name}}</td>
+               <td>{{item.flavour.name}}</td>
+              
+             </tr>
+           </table>
+              </div>
+        <!-- <div class="col-md-12">
+          <div class="col-md-6">
+            <label>OrderStatus</label>
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Order Status" [(ngModel)]="data.orderStatus" name="food">
+                <mat-option *ngFor="let orderStatus of orderStatuses" [value]="orderStatus">
+                  {{orderStatus.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div> -->
+      </div>
+  
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <button type="submit" class="btn-success">
+  
+            <mat-icon>save</mat-icon>
+          </button>
+        </div>
+      </div>
+  
+  
+    </form>
+  
+  </mat-card-content>

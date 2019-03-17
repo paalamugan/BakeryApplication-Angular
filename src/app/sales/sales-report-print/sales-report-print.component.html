@@ -1,0 +1,51 @@
+<div class="col-md-12">
+    <div class="col-md-10">
+      <div class="row">
+      <div class="col-md-7">
+        <h1 class="header_1">Delivery Report</h1>
+      </div>
+      <div class="col-md-5">
+          <h1 style="float: right;">
+              <button mat-button (click)="onSubmit()" class="production_b1 family" href="#" style="background-color:#68829e;color:white "><b>Print Delivery Report</b></button>
+        </h1>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-11">
+  <div class="example-container mat-elevation-z8">
+      <div class="example-header">
+          <mat-form-field>
+              <input matInput type="text" id="myInput" (keyup)="applyFilter()" placeholder="Filter">
+            </mat-form-field>
+            </div>
+            <div class="col-md-12" id="printsection">
+                <span class="report-none"><b>DATE:</b>&nbsp;{{today | date:'short'}}</span>
+                <h3 class="center report-none"> {{shop}} Delivery Report List</h3>
+            <table class="table" id="myTable">
+                <tr class="header">
+                  <th>Id</th>
+                  <th>CustomerName</th>
+                  <th>Mobile</th>
+                  <th>Total</th>
+                  <th>OrderedDate</th>
+                  <th>OrderedTime</th>
+                  <th>OrderStatus</th>
+                  <th>Shop</th>
+                  <th class="report-none1"></th>
+                </tr>
+                <tr *ngFor="let element of dataSource.data">
+                 <td>{{element.customid}}</td>
+                 <td>{{element.customer.name}}</td>
+                 <td>{{element.customer.mobile}}</td>
+                 <td>{{element.total}}</td>
+                 <td>{{element.orderedDate}}</td>
+                 <td>{{element.orderedTime}}</td>
+                 <td>{{element.orderStatus.name}}</td>
+                 <td> {{element.shop.shopName | uppercase}}</td>
+                 <td class="report-none1"><button mat-button (click)="salesshow(element)" href="#" >...</button> </td>
+                </tr>
+              </table>
+            </div>
+  </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="col-md-8">
+  <h1 class="header_1">Add product</h1>
+  <form class="example-form" #addproduct="ngForm">
+      <mat-form-field class="example-full-width">
+          <input matInput #itemNameInput="matInput"  [(ngModel)]="item.modelNumber" #modelname="ngModel" placeholder="Model No" name="item.model" type="text" autofocus required>
+        </mat-form-field>
+        <span style="color: red;" *ngIf="modelname.touched && !modelname.valid">
+            <div *ngIf="modelname.errors.required">*field is required*</div>
+          </span>
+    <mat-form-field class="example-full-width">
+      <input matInput  [(ngModel)]="item.name" #itemname="ngModel" placeholder="Item Name" name="item.name" type="text" required>
+    </mat-form-field>
+    <span style="color: red;" *ngIf="itemname.touched && !itemname.valid">
+        <div *ngIf="itemname.errors.required">*field is required*</div>
+      </span>
+    <mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="item.quantity" type="number" placeholder="Quantity" #quantity="ngModel" name="item.quantity" required>
+    </mat-form-field>
+    <span style="color: red;" *ngIf="quantity.touched && !quantity.valid">
+        <div *ngIf="quantity.errors.required">*field is required*</div>
+      </span>
+    <mat-form-field class="example-full-width">
+      <input matInput [(ngModel)]="item.price" type="number" placeholder="Price" #price="ngModel" name="item.price" required>
+    </mat-form-field>
+    <span style="color: red;" *ngIf="price.touched && !price.valid">
+        <div *ngIf="price.errors.required">*field is required*</div>
+      </span>
+    <button mat-button (click)="onSubmit()" [disabled]="addproduct.invalid" href="#" style="background-color:#68829e;color:white" class="family"><b>Add Product</b></button>
+  </form>
+</div>

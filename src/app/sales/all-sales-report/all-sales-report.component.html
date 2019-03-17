@@ -1,0 +1,131 @@
+
+<div class="col">
+    <div class="row">
+      <div class="col-md-4">
+          <h1 class="header_1">All Sales Report List</h1>
+      </div>
+      <div class="col-md-6 print_order">
+          <h1>
+              <button mat-button (click)="printorder()" class="order_1 family" href="#" style="background-color:#68829e;color:white "><b>Print Order List</b></button>
+        </h1>
+      </div>
+    </div>
+  </div>
+<div class="align">
+  <div class="col-md-12">
+    <div class="example-header">
+        <mat-form-field>
+          <input matInput  type="text" id="myInput" (keyup)="applyFilter()" placeholder="Filter">
+        </mat-form-field>
+      </div>
+     <div id="printsection">
+      <span class="none">DATE:&nbsp;{{today | date:'short'}}</span>
+      <h3 class="center none"> {{shop}} Order Report List</h3>
+      <table class="table" id="myTab">
+          <tr class="header">
+              <th>Id</th>
+              <th>CustomerName</th>
+              <th>Mobile</th>
+              <th>Advance</th>
+              <th>Total</th>
+              <th>OrderedDate</th>
+              <th>ExpectedDate</th>
+              <th>OrderStatus</th>
+              <th>Shop</th>
+              <th class="display_1"></th>
+              <th class="display_1"></th>
+            </tr>
+       <tr *ngFor="let element of dataSource.data">
+         
+          <td>{{element.customid}}</td>
+          <td>{{element.customer.name}}</td>
+       <td>{{element.customer.mobile}}</td>
+       <td>{{element.advance}}</td>
+       <td>{{element.total}}</td>
+       <td>{{element.orderedDate}}</td>
+       <td>{{element.expectedDate}}</td>
+
+
+
+
+       <td>{{element.orderStatus.name}}</td>
+       <td> {{element.shop.shopName | uppercase}}</td>
+       <td> <button type="button" [disabled]="custom" (click)="editorder(element)" class="display_1 hide_button cusor" >Edit</button> </td>
+       <td> <button type="button" [disabled]="custom" (click)="deleteorder(element)" class="display_1 hide_button cusor" >Delete</button> </td>
+       </tr>
+                  
+      </table>
+      </div>
+  <!-- <div class="example-header">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+
+  <table mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+   
+    <ng-container matColumnDef="customer">
+      <th mat-header-cell *matHeaderCellDef> CustomerName </th>
+      <td mat-cell *matCellDef="let element"> {{element.customer.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef> Mobile </th>
+        <td mat-cell *matCellDef="let element"> {{element.customer.mobile}} </td>
+      </ng-container>
+
+ 
+    <ng-container matColumnDef="advance">
+      <th mat-header-cell *matHeaderCellDef> Advance </th>
+      <td mat-cell *matCellDef="let element"> {{element.advance}} </td>
+    </ng-container>
+
+   
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Total </th>
+      <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+    </ng-container>
+    <ng-container matColumnDef="orderedDate">
+      <th mat-header-cell *matHeaderCellDef> OrderedDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderedDate}} </td>
+    </ng-container>
+    <ng-container matColumnDef="expectedDate">
+      <th mat-header-cell *matHeaderCellDef> ExpectedDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.expectedDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderedTime">
+      <th mat-header-cell *matHeaderCellDef> OrderedTime </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderedTime}} </td>
+    </ng-container>
+    <ng-container matColumnDef="expectedTime">
+      <th mat-header-cell *matHeaderCellDef> ExpectedTime </th>
+      <td mat-cell *matCellDef="let element"> {{element.expectedTime}} </td>
+    </ng-container>
+    <ng-container matColumnDef="orderStatus">
+      <th mat-header-cell *matHeaderCellDef> OrderStatus </th>
+      <td mat-cell *matCellDef="let element"> {{element.orderStatus.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="shop">
+      <th mat-header-cell *matHeaderCellDef> Shop </th>
+      <td mat-cell *matCellDef="let element"> {{element.shop.shopName}} </td>
+    </ng-container>
+   
+    <ng-container matColumnDef="actioncolumn">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon (click)="editorder(element)" class="cusor">edit</mat-icon> 
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table> -->
+</div>
+</div>

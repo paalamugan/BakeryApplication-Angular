@@ -1,0 +1,88 @@
+/* .position{
+    position: relative;
+    bottom: 27px;
+    left: 120px;
+} */
+.pending_matcard{
+    margin-bottom: 15px;
+}
+.table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+    border: 1px solid #171515;
+}
+.production_b1{
+    float: right;
+}
+#printsection{
+    background: white;
+    margin-top: 5px;
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+}
+.comments{
+    width: 50%;
+    word-wrap: break-word;
+    border-color: white;
+ }
+ 
+/* td {
+    height: 50%;
+} */
+/* div {
+    border: 1px solid;
+} */
+/* .border_production p{
+    border-left: 1px solid;
+} */
+table td{
+table-layout: fixed;
+width: 120px;
+overflow: hidden;
+word-wrap: break-word;
+}
+.kill{
+    position: relative;
+    left: 0px;
+}
+.td_1{
+    position: relative;
+    bottom: 5px;
+    left: 42px;
+}
+.fixed{
+    border-bottom: 2px solid;
+}
+.td_2{
+    position: relative;
+    top: 20px;
+}
+.display_1{
+    display:none;
+}
+.dispaly_print_1{
+    display:none;
+}
+.none{
+    display: none;
+}
+.exceptedDate{
+    position: relative;
+    top: 16px;
+}
+.td_3{
+    text-align: center;
+    left: 41px;
+    position: relative;
+}
+.td_4{
+    text-align: center;
+   
+}
+.s_td{
+    text-align: center;
+}
+.all_pending{
+    margin-left: 0px;
+}

@@ -1,0 +1,192 @@
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>All Sales Report Details</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onNoClick()" style="float: right;" class="cusor">cancel</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  
+  <mat-card-content>
+  
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+              <input [disabled]="true" [(ngModel)]="data.customid" matInput placeholder="Id" name="id">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+              <input matInput [(ngModel)]="data.customer.name" name="customername" [value]="data.customer.name"  name="customerName" placeholder="Customer Name">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+              <input matInput [(ngModel)]="data.customer.mobile" minlength="10" maxlength="10" name="customerMobile" placeholder="Mobile Number">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+        <mat-form-field class="example-full-width">
+          <input [(ngModel)]="data.expectedDate" name="data.expectedDate" [value]="date" matInput [matDatepicker]="dp3" disabled="true" placeholder="Excepted date:(MM/DD/YYYY)">
+          <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+          <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="col-md-12">
+        <div class="col-md-6">
+          <mat-form-field  class="example-full-width">
+            <input [(ngModel)]="data.expectedTime" name="data.expectedTime" type="time" matInput placeholder="Excepted hours:(HH:MM)">
+          </mat-form-field>
+          </div>
+          </div>
+        <div class="col-md-12">
+            <div class="col-md-6">
+              <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="data.total"  name="total" placeholder="Total">
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-12">
+              <div class="col-md-6">
+                <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="data.advance"  name="advance" placeholder="Advance">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                  <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="balance"  name="balance" placeholder="Balance">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-md-12">
+                  <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput [(ngModel)]="data.comments"  name="comments" placeholder="Description"></textarea>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                      <mat-form-field class="example-full-width">
+                          <input matInput [(ngModel)]="data.message"  name="message" placeholder="Message"/>
+                      </mat-form-field>
+                    </div>
+                  </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="Order Status" [(ngModel)]="data.orderStatus" name="orderStatus">
+                <mat-option *ngFor="let orderStatus of orderStatuses" [value]="orderStatus">
+                  {{orderStatus.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+           <table class="table">
+             <tr>
+               <td><b>Name</b></td>
+               <td><b>Model Number</b></td>
+               <td><b>Quantity</b></td>
+               <td><b>Flavour</b></td>
+               <td> <mat-icon (click)="add(data)" class="cusor" >add</mat-icon></td>
+             </tr>
+             <tr *ngFor="let item of orderItems">
+               <td>{{item.product.name}}</td>
+               <td>{{item.product.modelNumber}}</td>
+               <td>{{item.quantity}}{{item.uom.name}}</td>
+               <td>{{item.flavour.name}}</td>
+               <td> <mat-icon (click)="deleteitem(item)" class="cusor" >delete</mat-icon></td>
+             </tr>
+           </table>
+              </div>
+              <div *ngIf="addnew">
+                <div class="col-md-12">
+                  <div class="row">
+                  <div class="col-md-4">
+                      <mat-form-field class="example-full-width">
+                          <input type="text" #itemNameInput="matInput" placeholder="Select an Item" [(ngModel)]="productvalue" name="product" aria-label="Number" matInput [formControl]="formControl"
+                            [matAutocomplete]="auto" autofocus>
+                          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option (onSelectionChange)="onSelectionChange($event,option)" *ngFor="let option of filteredOptions | async" [value]="option.name">
+                              {{ option.name }} 
+                            </mat-option>
+                          </mat-autocomplete>
+                        </mat-form-field>
+                  </div>
+                  <div class="col-md-2">
+                      <mat-form-field class="example-full-width">
+                          <input matInput [(ngModel)]="item.quantity"  name="quantity" placeholder="quantity">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                     
+                            <mat-form-field class="example-full-width">
+                                <mat-select [(ngModel)]="item.flavour" [value]="selectedflavour" name="flavour" placeholder="Flavour Name">
+                                
+                                <mat-option *ngFor="let flavour of flavours" [value]="flavour">
+                                    {{flavour.name}}
+                                  </mat-option>
+                                  </mat-select>
+                            </mat-form-field>
+                      
+                      </div>
+                      <div class="col-md-2">
+                          <button mat-button type="button" (click)="saveitem()" class="order_1" href="#" style="background-color:#68829e;color:white ">Add</button>
+                      <!-- <button type="button" (click)="saveitem()">Add</button> -->
+                    </div>
+                </div>
+               
+                </div>
+              </div>
+        <!-- <div class="col-md-12">
+          <div *ngFor="let item of data.orderItems">
+            <div class="col-md-4">
+              <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="item.product.modelNumber"  name="item.product.modelNumber" placeholder="name">
+              </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="item.quantity"  name="item.quantity" placeholder="quantity">
+                </mat-form-field>
+              </div>
+              <div class="col-md-4">
+                  <mat-form-field class="example-full-width">
+                       <input matInput [(ngModel)]="item.flavour.name"  name="item.flavour.name" placeholder="Flavour Name"> 
+                      <mat-select [(ngModel)]="item.flavour" [value]="selected" name="flavour" placeholder="Flavour Name">
+                      
+                      <mat-option *ngFor="let flavour of flavours" [value]="flavour">
+                          {{flavour.name}}
+                        </mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                </div>
+          </div>
+        </div> -->
+      </div>
+  
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <button type="submit" class="btn-success">
+  
+            <mat-icon>save</mat-icon>
+          </button>
+        </div>
+      </div>
+  
+  
+    </form>
+  
+  </mat-card-content>

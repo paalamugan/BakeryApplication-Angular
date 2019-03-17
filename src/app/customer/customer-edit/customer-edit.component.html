@@ -1,0 +1,52 @@
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Customer Details</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onNoClick()" style="float: right;" class="cusor">cancel</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  
+  <mat-card-content>
+    
+      <form  (submit)="onSubmit()">
+        <div class="form-group">
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <label>Customer Name</label>
+              <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="data.name" [value]="customername" name="customername">
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <label>Mobile Number</label>
+              <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="data.mobile" minlength="10" maxlength="10" [value]="mobile" name="mobile" maxlength="10" >
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="col-md-6">
+              <label>Alternate Mobile</label>
+              <mat-form-field class="example-full-width">
+                  <input matInput [(ngModel)]="data.alternateMobile" [value]="alternateMobile" maxlength="10" name="alternatemobile">
+                </mat-form-field>
+            </div>
+          </div>
+        
+          </div>
+         
+          <div class="col-md-12">
+            <div class="col-md-3">
+            <button type="submit" (click)="onSubmit()" class="btn-success">
+            
+              <mat-icon>save</mat-icon>
+            </button>
+            </div>
+          </div>
+       
+  
+      </form>
+  
+  </mat-card-content>

@@ -1,0 +1,45 @@
+<mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Flavour Details</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onNoClick()" style="float: right;" class="cusor">cancel</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+  
+  <mat-card-content>
+    
+    <form (submit)="onSubmit()">
+      <div class="form-group">
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <label>Flavour Name</label>
+            <mat-form-field class="example-full-width">
+                <input matInput [disabled]="false" [(ngModel)]="data.name" [value]="name" placeholder=" Flavour Name" name="name">
+              </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            <label>Flavour Code</label>
+            <mat-form-field class="example-full-width">
+                <input matInput [disabled]="false" [(ngModel)]="data.code" [value]="code" placeholder="Flavour Code" name="code">
+              </mat-form-field>
+          </div>
+        </div>
+        
+        </div>
+       
+        <div class="col-md-12">
+          <div class="col-md-3">
+          <button type="submit" class="btn-success">
+          
+            <mat-icon>save</mat-icon>
+          </button>
+          </div>
+        </div>
+     
+  
+    </form>
+  
+  </mat-card-content>
+   

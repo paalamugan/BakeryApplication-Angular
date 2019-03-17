@@ -1,0 +1,18 @@
+<div class="col-md-5">
+    <h1 class="header_1">Add Flavour</h1>
+    <form class="example-form" #addflavour="ngForm">
+      <mat-form-field class="example-full-width">
+        <input matInput #flavourNameInput="matInput"  [(ngModel)]="flavour.name" #flavourname="ngModel" placeholder="Flavour Name" name="flavour.name" type="text" autofocus required>
+      </mat-form-field>
+      <span style="color: red;" *ngIf="flavourname.touched && !flavourname.valid">
+          <div *ngIf="flavourname.errors.required">*field is required*</div>
+        </span>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="flavour.code" type="text" placeholder="Flavour Code" #flavourcode="ngModel" name="flavour.code" required>
+      </mat-form-field>
+      <span style="color: red;" *ngIf="flavourcode.touched && !flavourcode.valid">
+          <div *ngIf="flavourcode.errors.required">*field is required*</div>
+        </span>
+      <button mat-button (click)="onSubmit()" [disabled]="addflavour.invalid" href="#" style="background-color:#68829e;;color:white" class="family"><b>Add Flavour</b></button>
+    </form>
+  </div>

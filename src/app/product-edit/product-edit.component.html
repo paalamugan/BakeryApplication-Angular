@@ -1,0 +1,60 @@
+<mat-card-header>
+  <mat-toolbar class="toolbar">
+    <mat-card-title>Product Details</mat-card-title>
+    <span class="toolbar-spacer"></span>
+    <mat-icon (click)="onNoClick()" style="float: right;" class="cusor">cancel</mat-icon>
+  </mat-toolbar>
+</mat-card-header>
+
+<mat-card-content>
+  
+  <form (submit)="onSubmit()">
+    <div class="form-group">
+        <div class="col-md-12">
+            <div class="col-md-6">
+              <label>Model Number</label>
+              <mat-form-field class="example-full-width">
+                  <input matInput [disabled]="false" [(ngModel)]="data.modelNumber" [value]="modelNumber" placeholder=" Model NUmber" name="modelNumber">
+                </mat-form-field>
+            </div>
+          </div>
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <label>Item Name</label>
+          <mat-form-field class="example-full-width">
+              <input matInput [disabled]="false" [(ngModel)]="data.name" [value]="name" placeholder=" Item Name" name="name">
+            </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <label>Quantity</label>
+          <mat-form-field class="example-full-width">
+              <input matInput [disabled]="false" [(ngModel)]="data.quantity" [value]="quantity" placeholder="Quantity" name="quantity">
+            </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-6">
+          <label>Price</label>
+          <mat-form-field class="example-full-width">
+              <input matInput [disabled]="false" [(ngModel)]="data.price" [value]="price" placeholder="Price" name="price">
+            </mat-form-field>
+        </div>
+      </div>
+      </div>
+     
+      <div class="col-md-12">
+        <div class="col-md-3">
+        <button type="submit" class="btn-success">
+        
+          <mat-icon>save</mat-icon>
+        </button>
+        </div>
+      </div>
+   
+
+  </form>
+
+</mat-card-content>
+ 

@@ -1,0 +1,30 @@
+<div class="col-md-8">
+    <h1 class="header_1">Add Customer</h1>
+  <form class="example-form" #addcustomer="ngForm">
+      <mat-form-field class="example-full-width">
+          <input matInput #customerNameInput="matInput" pattern="[a-zA-Z '-,;.]*"  #custoname="ngModel" [(ngModel)]="customer.name" placeholder="Customer Name" name="customerName"   type="text" required autofocus>
+        </mat-form-field>
+        <span style="color: red;" *ngIf="custoname.touched && !custoname.valid">
+            <div *ngIf="custoname.errors.required">*field is required*</div>
+            <div *ngIf="custoname.errors.pattern">*name must be a character*</div>
+           </span>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="customer.mobile" type="text" placeholder="Mobile" minlength="10" maxlength="10" #mobile="ngModel" pattern="[0-9]*" name="mobile" required>
+        </mat-form-field>
+        <span style="color: red;" *ngIf="mobile.touched && !mobile.valid">
+            <div *ngIf="mobile.errors.required">*field is required*</div>
+            <div *ngIf="mobile.errors.pattern">*invalid number*</div>
+            <div *ngIf="mobile.errors.minlength">*must be a 10 letter*</div>
+           </span>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="customer.alternateMobile" type="text"  placeholder="AlternateMobile" pattern="[0-9]*" minlength="10" maxlength="10" #altermobile="ngModel" name="alternateMobile">
+        </mat-form-field>
+        <span style="color: red;" *ngIf="altermobile.touched && !altermobile.valid">
+            <div *ngIf="altermobile.errors.pattern">*invalid number*</div>
+           
+            <div *ngIf="altermobile.errors.minlength">*must be a 10 letter*</div>
+           </span>
+        <button mat-button (click)="onSubmit()" [disabled]="addcustomer.invalid" href="#" style="background-color:#68829e;;color:white" class="family"><b>Add Customer</b></button>
+    </form>
+  </div>
+  

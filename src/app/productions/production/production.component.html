@@ -1,0 +1,140 @@
+
+  
+     
+   <div class="col-md-12">
+     <div class="row">
+       <div class="col-md-3">
+       <h1 class="header_1">Pending List</h1>
+      </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-md-8 exceptedDate">          
+            <mat-form-field class="example-full-width">
+              <input [(ngModel)]="expectedDate" name="expectedDate" matInput [matDatepicker]="dp3" placeholder="Excepted date:(MM/DD/YYYY)" disabled required>
+              <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+              <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+            </mat-form-field>
+          </div>
+<div class="col-md-4">
+    <h1>
+        <button mat-button (click)="on()" class="production_b1 family" href="#" style="background-color:#68829e;color:white"><b>Select Date</b></button>
+  </h1>
+</div>
+            <!-- <button type="button" (click)="on()">button</button> -->
+          </div>
+      </div>
+      <div class="col-md-4">
+          <h1>
+                <button mat-button (click)="onSubmit()" class="production_b1 family" href="#" style="background-color:#68829e;color:white "><b>Move to Production</b></button>
+          </h1>
+        </div>
+        </div>
+        </div>
+             <div class="col-md-11"  id="printsection">
+                
+                     <h2 class="text-center dispaly_print_1">ANUMOD BAKERY CAKE ORDER SLIP</h2>
+                     <p class="text-center dispaly_print_1 shop_top">{{shop |uppercase}}&nbsp;SHOP</p>
+                     <span class="none"><b>DATE:</b>&nbsp;{{today | date:'short'}}</span>
+                     <div class="all_pending">
+                          <table class="fixed display">
+                            
+                              <td class="td_1 s_td" cellpadding="10"cellspacing="10"><b>S/No</b></td>
+                            <td class="td_1" cellpadding="10"cellspacing="10"><b>Bill No</b></td>
+                        
+                            <div>
+                              <tr>
+                                  <td  cellpadding="10"cellspacing="10"><b>Item Name</b></td>
+                                <td cellpadding="10"cellspacing="10"><b>ModelNumber</b></td>
+                                <td cellpadding="10"cellspacing="10"><b>Flavour</b></td>
+                                <td class="td_4" cellpadding="10"cellspacing="10"><b>Quantity</b></td>
+                                <td cellpadding="10"cellspacing="10"><b>Delivery Date</b></td>
+                                <td cellpadding="10"cellspacing="10"><b>Delivery Time</b></td>
+                              </tr>
+                            </div>
+                    
+                          </table>
+                   <div *ngFor="let item of salereports1;let i = index">
+                    
+                      <div class="display_1 comments">                          
+                          <td><b>S/No:</b>&nbsp;<b>{{i+1}}</b></td>
+                        </div>
+                      <td class="td_2 display_1"><b>Bill No:</b>&nbsp;<b>{{item.customid}}</b></td>
+     
+                      <div class="display_1 comments">                          
+                        <td><b>Description:</b>&nbsp;{{item.comments}} </td>
+                      </div>
+                            <div class="display_1 message">
+                                <td><b>Message:</b>&nbsp;{{item.message}}</td>
+                            </div>            
+                      
+                  
+     
+                   
+                      <table class="fixed"> 
+                   
+                         <tr class="display_1">
+                            <td  cellpadding="10"cellspacing="10"><b>Item Name</b></td>
+                           <td  cellpadding="10"cellspacing="10"><b>ModelNumber</b></td>
+                           <td  cellpadding="10"cellspacing="10"><b>Flavour</b></td>
+                           <td  cellpadding="10"cellspacing="10"><b>Quantity</b></td>
+                           <td  cellpadding="10"cellspacing="10"><b>Delivery Date</b></td>
+                           <td  cellpadding="10"cellspacing="10"><b>Delivery Time</b></td>
+                         </tr>
+                         <td  class="td_3 display"><b>{{i+1}}</b></td>
+                         <td class="td_4 display"><b>{{item.customid}}</b></td>
+                          <div class="kill">
+                        <tr *ngFor="let data of item.orderItems">
+                            <td cellpadding="10"cellspacing="10">{{data.product.name}}</td>
+                        <td cellpadding="10"cellspacing="10">{{data.product.modelNumber}}</td>
+                      <td cellpadding="10"cellspacing="10" >{{data.flavour.name}}</td>
+                      <td class="td_4" cellpadding="10"cellspacing="10" >{{data.quantity}}{{data.uom.name}}</td>
+                      <td cellpadding="10"cellspacing="10">{{item.expectedDate}}</td> 
+                       <td cellpadding="10"cellspacing="10">{{item.expectedTime}}</td> 
+                      </tr> 
+                    </div>
+                
+                    </table>
+                   
+                    </div> 
+                  </div>  
+     
+        </div>
+        <!-- <div class="col-md-10 dispaly_print"  id="printsection">
+                
+                     
+                
+            <table class="fixed display">
+              <td class="td_1" cellpadding="10"cellspacing="10"><b>Bill No</b></td>
+              <div>
+                <tr>
+                  <td cellpadding="10"cellspacing="10"><b>ModelNumber</b></td>
+                  <td cellpadding="10"cellspacing="10"><b>Flavour</b></td>
+                  <td cellpadding="10"cellspacing="10"><b>Quantity</b></td>
+                  <td cellpadding="10"cellspacing="10"><b>Delivery Time</b></td>
+                </tr>
+              </div>
+            </table>
+     <div *ngFor="let item of salereports">
+       
+        
+        <table class="fixed"> 
+     
+            <td class="td_1"><b class="display_1">Bill No:</b>&nbsp;<b>{{item.id}}</b></td>
+            <div class="kill">
+          <tr *ngFor="let data of item.orderItems">
+          <td cellpadding="10"cellspacing="10">{{data.product.modelNumber}}</td>
+        <td cellpadding="10"cellspacing="10" >{{data.flavour.name}}</td>
+        <td cellpadding="10"cellspacing="10" >{{data.quantity}}{{data.uom.name}}</td>
+         <td cellpadding="10"cellspacing="10">{{item.expectedTime}}</td> 
+        </tr> 
+      </div>
+  
+      </table>
+     
+      </div> 
+        
+
+</div> -->
+
+   
+            

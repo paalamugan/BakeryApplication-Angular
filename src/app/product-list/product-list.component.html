@@ -1,0 +1,79 @@
+<div class="col-md-10">
+    <h1 class="header_1">Product List</h1>
+    <div class="example-container mat-elevation-z8">
+        <div class="example-header">
+            <mat-form-field>
+                <input matInput type="text" id="myInput" (keyup)="applyFilter()" placeholder="Filter">
+              </mat-form-field>
+              </div>
+              <table id="myTable">
+                  <tr class="header">
+                    <th>Id</th>
+                    <th>ModelNumber</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th></th>
+                    <!-- <th></th> -->
+                  </tr>
+                  <tr *ngFor="let element of dataSource.data">
+                   <td>{{element.id}}</td>
+                   <td>{{element.modelNumber}}</td>
+                   <td>{{element.name}}</td>
+                   <td>{{element.quantity}}</td>
+                   <td>{{element.price}}</td>
+                   <td><button type="button" [disabled]="custom" (click)="editproduct(element)" class="hide_button cusor" >Edit</button> </td>
+                   <!-- <td> <button type="button" [disabled]="custom" (click)="deleteproduct(element)" class="hide_button cusor" >Delete</button> </td> -->
+                  </tr>
+                </table>
+        <!-- <div class="example-header">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+        </div>
+      
+        <table mat-table #table [dataSource]="dataSource">
+      
+          
+      
+           
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+         
+          <ng-container matColumnDef="modelNumber">
+            <th mat-header-cell *matHeaderCellDef> modelNumber </th>
+            <td mat-cell *matCellDef="let element"> {{element.modelNumber}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+      
+        
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+          </ng-container>
+      
+         
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+          </ng-container>
+          <ng-container matColumnDef="actionsColumn">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element; let i = index;">
+                <mat-icon (click)="editproduct(element)" class="cusor">edit</mat-icon> &nbsp; &nbsp; &nbsp;
+                
+                </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table> -->
+      </div>
+     
+    </div>

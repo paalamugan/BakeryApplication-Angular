@@ -1,0 +1,75 @@
+
+    <h2>Cart Items</h2>
+  <div class="button-card">
+     
+    
+          <div class="col-md-12">
+            <div class="row">
+
+              <div class="col-md-4">
+                  <h3>Total:{{salesOrder.total}}</h3>
+              </div>
+              <div class="col-md-2" style="margin-top: 15px;">
+                  <button mat-button class="button_2 family" (click)="onOrderClick()" ><b>Order</b></button>
+              </div>
+              <div class="col-md-4" style="margin-top: 15px;">
+                  <button mat-button class="button_2 family" (click)="onCheckOut()"><b>CheckOut</b></button>
+              </div>
+            </div>
+             
+              
+       
+      
+    
+       
+       
+      </div>
+   
+    </div>
+    <div class="col-md-12">
+  <div class="overflow">
+    <mat-card *ngIf="showOrderItems">
+        <table class="table">
+     
+            <thead>
+              <tr>
+                <td class="family"><b>Name</b></td>
+                <td class="family"><b>Flavour</b></td>
+                <td class="family"><b>Quantity</b></td>
+                <td class="family"><b>Price</b></td>
+                <td class="family"><b>Amount</b></td>
+              </tr>
+            </thead>
+              <tbody>
+                <tr *ngFor="let item of salesOrder.orderItems">
+                    <td class="item-cart">{{item.product.name}}</td>
+                    <td class="item-cart">{{item.flavour.name}}</td>
+                    <td class="item-cart">{{item.quantity}}{{item.uom.name}}</td>
+                    <td class="item-cart">₹{{item.price}}</td>
+                    <td class="item-cart">₹{{item.quantity *item.price}}</td>
+                </tr>
+              </tbody>
+</table>
+
+    </mat-card>
+     <!-- <mat-card *ngFor="let item of salesOrder.orderItems">
+    <table class="table">
+     
+      <thead>
+      <tr>
+        <td class="item-cart">{{item.product.name}}</td>
+        <td class="item-cart">{{item.flavour}}</td>
+        <td class="item-cart">{{item.quantity}}{{item.uom.viewValue}}</td>
+        <td class="item-cart">₹{{item.price}}</td>
+        <td class="item-cart">₹{{item.quantity *item.price}}</td>
+      </tr>
+    </thead>
+    </table>
+    </mat-card> -->
+
+
+    
+ 
+   
+  </div>
+</div>

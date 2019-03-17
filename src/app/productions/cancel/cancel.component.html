@@ -1,0 +1,59 @@
+<div class="col">
+    <div class="row">
+      <div class="col-md-4">
+          <h1 class="header_1">Order List</h1>
+      </div>
+      <div class="col-md-6 print_order">
+          <h1>
+              <button mat-button (click)="printorder()" class="order_1 family" href="#" style="background-color:#68829e;color:white"><b>Print Order List</b></button>
+        </h1>
+      </div>
+    </div>
+  </div>
+<div class="align">
+ <div class="col-md-12"style="margin-left: -40px;">
+    <div class="example-header">
+        <mat-form-field>
+          <input matInput  type="text" id="myInput" [(ngModel)]="anynumber" (keyup)="applyFilter()" placeholder="Filter">
+        </mat-form-field>
+      </div>
+      <div id="printsection">
+          <span class="none">DATE:&nbsp;{{today | date:'short'}}</span>
+          <h3 class="center none"> {{shop}} Order Report List</h3>
+      <table class="table" id="myTab">
+          <tr class="header">
+              <th>S/No</th>
+              <th>Id</th>
+              <th>CustomerName</th>
+              <th>Mobile</th>
+              <th>Advance</th>
+              <th>Total</th>
+              <th>OrderedDate</th>
+              <th>ExpectedDate</th>
+              <th>OrderedTime</th>
+              <th>ExpectedTime</th>
+              <th>OrderStatus</th>
+              <th>Shop</th>
+              <th class="display_1"></th>
+              <th></th>
+            </tr>
+       <tr *ngFor="let element of salesorder;let i=index;">
+           <td>{{i+1}}</td>
+         <td>{{element.customid}}</td>
+          <td>{{element.customer.name}}</td>
+       <td>{{element.customer.mobile}}</td>
+       <td>{{element.advance}}</td>
+       <td>{{element.total}}</td>
+       <td>{{element.orderedDate}}</td>
+       <td>{{element.expectedDate}}</td>
+       <td>{{element.orderedTime}}</td>
+       <td> {{element.expectedTime}} </td>
+       <td>{{element.orderStatus.name}}</td>
+       <td> {{element.shop.shopName | uppercase}}</td>
+       <td><button type="button" (click)="editcancel(element)" class="display_1 hide_button cusor" >Cancel</button></td>
+       <td><button type="button" [disabled]="custom" (click)="Print(element)" class="display_1 hide_button cusor" >View</button> </td>
+       </tr>
+          </table>
+          </div>
+    </div>
+</div>

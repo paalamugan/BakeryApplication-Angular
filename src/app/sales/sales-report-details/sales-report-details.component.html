@@ -1,0 +1,45 @@
+<div class="col-md-12">
+  <mat-card-header>
+    <mat-toolbar class="toolbar">
+      <mat-card-title>Sales Details</mat-card-title>
+      <span class="toolbar-spacer"></span>
+      <mat-icon (click)="onNoClick()" style="float: right;" class="cusor">cancel</mat-icon>
+    </mat-toolbar>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="example-container mat-elevation-z8">
+
+        <div class="col-md-12">
+           <table class="table">
+<tbody>
+    <tr>
+        <th>Name</th>
+        <th>Model Number</th>
+        <th>Flavour</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+      <tr *ngFor="let item of data.orderItems">
+       
+          <!-- <input matInput [(ngModel)]="item.product.modelNumber"  name="item.product.modelNumber" placeholder="name">
+         <input matInput [(ngModel)]="item.quantity"  name="item.quantity" placeholder="quantity">
+        <input matInput [(ngModel)]="item.flavour.name"  name="item.flavour.name" placeholder="Flavour Name">  -->
+        <td>{{item.product.name}}</td>
+        <td>{{item.product.modelNumber}}</td>
+        <td>{{item.flavour.name}}</td>
+        <td>{{item.price}}</td>
+
+        <td>{{item.quantity}}{{item.uom.name}}</td>
+
+        <td>{{item.price*item.quantity}}</td>
+      </tr>
+      
+</tbody>
+           </table>
+     
+    </div>
+    </div>
+  </mat-card-content>
+</div>

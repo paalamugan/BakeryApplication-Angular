@@ -1,0 +1,36 @@
+
+    
+    <h1 class="header_1">Cancelled List</h1>
+    <div class="align">
+     <div class="col-md-12">
+        <div class="example-header">
+            <mat-form-field>
+              <input matInput  type="text" id="myInput" (keyup)="applyFilter()" placeholder="Filter">
+            </mat-form-field>
+          </div>
+            <table class="table" id="myTable">
+                <tr class="header">
+                  <th>Id</th>
+                  <th>CustomerName</th>
+                  <th>Mobile</th>
+                  <th>Total</th>
+                  <th>OrderedDate</th>
+                  <th>OrderedTime</th>
+                  <th>OrderStatus</th>
+                  <th>Shop</th>
+                  <th></th>
+                </tr>
+                <tr *ngFor="let element of dataSource.data">
+                 <td>{{element.customid}}</td>
+                 <td>{{element.customer.name}}</td>
+                 <td>{{element.customer.mobile}}</td>
+                 <td>{{element.total}}</td>
+                 <td>{{element.orderedDate}}</td>
+                 <td>{{element.orderedTime}}</td>
+                 <td>{{element.orderStatus.name}}</td>
+                 <td> {{element.shop.shopName | uppercase}}</td>
+                 <td><button mat-button (click)="salesshow(element)" href="#" >...</button> </td>
+                </tr>
+              </table>
+            </div>
+  </div>

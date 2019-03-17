@@ -1,0 +1,78 @@
+<div>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text" #inputSearch #itemNameInput="matInput" [value]="search" placeholder="Select an Item" aria-label="Number" matInput [formControl]="formControl"
+        [matAutocomplete]="auto" autofocus>
+      <mat-autocomplete autoActiveFirstOption class="displaynull" #auto="matAutocomplete">
+        <mat-option (onSelectionChange)="onSelectionChange($event,option)" *ngFor="let option of filteredOptions | async" [value]="option.modelNumber" 
+          (click)="onSelectionChange(option)">
+          {{ option.modelNumber }} 
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</div>
+<div *ngIf="item">
+  <h4>Product Details</h4>
+  <form #productfrom="ngForm">
+  <div class="example-container">
+ <div class="col">
+   <div class="col-md-6" style="padding-left: 0px">  
+       <mat-form-field>
+      <input matInput [disabled]="true" name="name" [(ngModel)]="item.product.name"  [value]="name" placeholder="Name">
+    </mat-form-field>
+  </div>
+<div class="col-md-6">
+    <mat-form-field>
+        <input matInput [disabled]="true" name="modelnumber" [(ngModel)]="item.product.modelNumber"  [value]="modelnumber" placeholder="Model Number">
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Pick one flavour" name="flavour" [(ngModel)]="flavourvalue" aria-label="Number" [formControl]="formControl1" [matAutocomplete]="auto"/>
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option (onSelectionChange)="onChange($event,flavour)" *ngFor="let flavour of filteredOptions2 | async" [value]="flavour.name">
+          {{flavour.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    
+  <div class="col">
+    <div class="col-md-8" style="padding-left: 0px">
+    <mat-form-field>
+      <input matInput  [(ngModel)]="item.quantity" type="number" name="quantity" #quantity="ngModel"  pattern="[0-9 '-,;.]*" [(value)]="item.quantity"  placeholder="Quantity" required />
+     
+    </mat-form-field>
+  </div>
+  <div class="col-md-4">
+      <mat-form-field>
+          <mat-select placeholder="uom" [disabled]="true" [(ngModel)]="item.uom" [value]="selected" name="uom" required>
+            <mat-option *ngFor="let uom of uom" [value]="uom">
+              {{uom.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  </div>
+    <span style="color: red;" *ngIf="quantity.touched && !quantity.valid">
+        <div *ngIf="quantity.errors.required">*quantity is required*</div>
+       
+       </span>
+     
+ 
+    <mat-form-field>
+     <input matInput [disabled]="true" [(ngModel)]="item.price"  type="number" #price="ngModel" name="price" [(value)]="item.price" placeholder="Price" required>
+     <span matPrefix>₹&nbsp;</span>
+     <span matSuffix>.00</span>
+    </mat-form-field>
+    <span style="color: red;" *ngIf="price.touched && !price.valid">
+        <div *ngIf="price.errors.required">*price is required*</div>
+       
+       </span>
+      
+    <button mat-button (click)="onAdd(item)" [disabled]="productfrom.invalid" href="#" style="background-color:#68829e;;color:white " class="family"><b>Add Cart</b></button>
+  
+  </div>
+</form>
+</div>

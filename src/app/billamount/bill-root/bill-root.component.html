@@ -1,0 +1,15 @@
+<div class="col-md-12">
+  <div class="row">
+   
+    <div class="col-md-6">
+      <h2>Add Item to Cart</h2>
+      
+        <app-productdetail *ngIf="!isOrder" (addToCart)="onAddToCart($event)" ></app-productdetail>
+        <order-details *ngIf="isOrder" [salesOrder]="salesOrder" (orderCompleted)="onOrderCompleted($event)"></order-details>
+      
+    </div>
+    <div class="col-md-6">
+      <app-cart [salesOrder]="salesOrder" (closeBill)="oncloseBill($event)" (onOrder)="onOrderClicked($event)"></app-cart>
+    </div>
+  </div>
+</div>

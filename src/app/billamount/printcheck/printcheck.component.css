@@ -1,0 +1,29 @@
+
+    .none{
+        display: none;
+    }
+    .border{
+        border-top: none;
+    }
+  .bakeryhead{
+    font-size: 19px;
+    position: relative;
+    right: 17px;
+    bottom: 11px;
+  }
+  .shop{
+      padding-right: 50px;
+  }
+.underline{
+    border-bottom: 1px solid;
+}
+.message{
+    width: 50%;
+}
+ .comments{
+    width: 60%;
+    border-color: white;
+ }
+ .display{
+     display: none;
+ }
